@@ -1,8 +1,13 @@
-class CuentaAhorro:
-    '''____________________________________________
+class CuentaAhorros:
+    # aqui va el codigo
+    '''----------------------------------------------------------------
     # Atributos
-    ____________________________________________'''
-
+    ----------------------------------------------------------------'''
     saldo = 0
-    interes = 0
+    interesMensual = 0
+
+    def consultarSaldo(self):
+        return "Su salario actual es: ", self.saldo
     
+    def consultarInteresMensual(self):
+        return "El interes mesual es de: ", self.interesMensual

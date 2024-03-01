@@ -1,9 +1,18 @@
 class CDT:
-    '''____________________________________________
+    # aqui va el codigo
+    '''----------------------------------------------------------------
     # Atributos
-    ____________________________________________'''
-
+    ----------------------------------------------------------------'''
+    
     valorInvertido = 0
-    interes = 0
+    interesMensual = 0
     mesApertura = 0
     
+    def consultarInvercion(self):
+        return self.valorInvertido
+    
+    def consultarInteresMensual(self):
+        return self.interesMensual
+    
+    def consultarMesApertura(self):
+        return self.mesApertura

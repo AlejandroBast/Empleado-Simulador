@@ -1,31 +1,60 @@
+from fecha import Fecha
+
 class Empleado:
-    '''____________________________________________
+
+    #aqui va el codigo
+
+    '''-------------------------------------
     # Atributos
-    ____________________________________________'''
-    nombres = ""
-    apellidos = ""
-    '''____________________________________________
+    -------------------------------------'''
+    nombres = ''
+    apellidos = ''
+
+    '''-------------------------------------
     # 1 = Masculino y 2 = Femenino
-    _____________________________________________'''
-    sexo = 0
-    salario = 0
-
-    '''_____________________________________________
+    -------------------------------------'''
+    sexo=0
+    salario=0
+    
+    '''----------------------------------------------------------------
+    # Asociaciones
+    ----------------------------------------------------------------'''
+    fechaNacimiento = Fecha()
+    fechaIngreso = Fecha()
+    
+    '''----------------------------------------------------------------
     # Metodos
-    _____________________________________________'''
-
-    def cambiarSalario(self, nSalario):
-    # Aqui va el codigo
-        self.salario = nSalario
+    ----------------------------------------------------------------'''
+    def CambiarSalario(self, nSalario):
+        # Aqui va el codigo
+        self.salario = nSalario 
         return "Su nuevo salario es: ", self.salario
-
-    def consultarSalario(self):
-    # Aqui va el codigo
+    
+    def ConsultarSalario(self):
+        # Aqui va el codigo
         return self.salario
+    
+    def AumentoSalario(self):
+        # aqui va el codigo
 
-    def aumentoSalarial(self):
-    # Aqui va el codigo
-        aumento = self.salario * 0.05
-        nSalario = aumento + self.salario
+        aumento = self.salario*0.05
+        nSalario = self.salario+aumento
         self.salario = nSalario
-        return "Su nuevo salario es: ", self.salario
+        return "Su nuevo salario es: " + self.salario
+        
+    def DuplicarSalario(self):
+        nuevoSalario = self.salario * 2
+        self.salario = nuevoSalario
+        
+    def CalcularSalarioAnual(self):
+        salarioAnual=self.salario*12
+        return salarioAnual
+    
+    def ConsultarDiaCumpleanios(self):
+        return self.fechaNacimiento.ConsultarDia()
+    
+    def CalcularImpuesto(self):
+        #Forma 1
+        total = self.CalcularSalarioAnual()
+        total = total * 0.195
+        return total
