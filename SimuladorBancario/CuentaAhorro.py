@@ -5,9 +5,18 @@ class CuentaAhorros:
     ----------------------------------------------------------------'''
     saldo = 0
     interesMensual = 0
-
+    
+    '''----------------------------------------------------------------
+    # Metodos
+    ----------------------------------------------------------------'''
     def consultarSaldo(self):
-        return "Su salario actual es: ", self.saldo
+        return self.saldo
     
     def consultarInteresMensual(self):
-        return "El interes mesual es de: ", self.interesMensual
+        return self.interesMensual
+    
+    def consignarMonto(self, monto):
+        self.saldo += monto
+        
+    def retirarMonto(self, monto):
+        self.saldo -= monto

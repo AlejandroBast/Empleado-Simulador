@@ -1,48 +1,69 @@
-from CDT import CDT
 from CuentaAhorro import CuentaAhorros
 from CuentaCorriente import CuentaCorriente
+from CDT import CDT
 
 class SimuladorBancario:
     
     # aqui va el codigo
-
     '''----------------------------------------------------------------
     # Atributos
     ----------------------------------------------------------------'''
-    cedula = ''
-    nombre = ''
-    mesActual = 0
+    def __init__(self, cedula, nombre, mesActual, tipoCliente):
+        self.cedula = cedula
+        self.nombre = nombre
+        self.mesActual = mesActual
 
-    '''-----------------------------------------------------------------
+##### ---TIPO CLIENTE--------------------------------------------------------------
+        self.tipoCliente = tipoCliente
+#### -------------------------------------------------------------------------------
+        
+    '''----------------------------------------------------------------
     # Asociaciones
-    -----------------------------------------------------------------'''
-    cedete = CDT()
+    ----------------------------------------------------------------'''
     ahorros = CuentaAhorros()
     corriente = CuentaCorriente()
-
-    '''-----------------------------------------------------------------
-    # Metodos
-    -----------------------------------------------------------------'''
-    def consultarSaldoAhorros(self):
-        return self.ahorros.consultarSaldo()
+    cdt = CDT()
     
+    '''----------------------------------------------------------------
+    # Metodos
+    ----------------------------------------------------------------'''
+    
+    def calcularSaldoToTal(self):
+        return self.ahorros.consultarSaldo() + self.corriente.consultarSaldo()
+        
+    def consignarCuentaCorriente(self, monto):
+        self.corriente.consignarMonto(monto)
+        
+    def consignarCuentaAhorros(self, monto):
+        self.ahorros.consignarMonto(monto)
+    
+    def transferirAhorrosACorriente(self):
+        self.consignarCuentaCorriente(self.ahorros.consultarSaldo())
+        self.ahorros.retirarMonto(self.ahorros.consultarSaldo())
+    
+    def duplicarAhorro(self):
+        self.consignarCuentaAhorros(self.ahorros.consultarSaldo())
+    
+    def retirarCuentaCorriente(self, monto):
+        self.corriente.retirarMonto(monto)
+    
+    def retirarCuentaAhorros(self, monto):
+        self.ahorros.retirarMonto(monto)
+    
+    def retirarTodo(self):
+        total = self.CalcularSaldoToTal()
+        self.TransferirAhorrosACorriente()
+        self.RetirarCuentaCorriente(total)
+        
+        return total
+    
+#### ---CAMBIAR TIPO DE CLIENTE-----------------------------------------------------------------------------
+    def cambiarTipoCliente(self, nuevoTipoCliente):
+        self.tipoCliente = nuevoTipoCliente
+
     def consultarSaldoCorriente(self):
         return self.corriente.consultarSaldo()
-    
-    def consignarCuentaCorriente(self, nValor):
-        self.corriente.consultarSaldo() + nValor
-        return self.corriente.consultarSaldo()
+#### --------------------------------------------------------------------------------
 
-    def duplicarSaldoAhorros(self):
-        self.ahorros.saldo *= 2
-        return  self.ahorros.saldo
-
-    def retirarTodoAhorros(self):
-        retiroAhorros = self.ahorros.saldo
-        self.ahorros.saldo = 0
-        return "Se retiraron: ", retiroAhorros, "Su saldo actual es de: ", self.ahorros.saldo
     
-    def retirarTodoCorriente(self):
-        retiroCorriente = self.corriente.saldo
-        self.corriente.saldo = 0
-        return "Se retiraron: ", retiroCorriente, "Su saldo actual es de: ", self.corriente.saldo
+    
