@@ -7,12 +7,11 @@ class Empleado:
     #     Atributos
     -----------------------------------------------------------------'''
     
-    def __init__(self, nombres, apellidos, salario, sexo, numeroHijosEmpleado):
+    def __init__(self, nombres, apellidos, salario, numeroHijosEmpleado, sexo):
         self.nombres=nombres
         self.apellidos=apellidos
         self.salario=salario
-        self.sexo=sexo  # 1 Masculino y 2 Femenino
-    
+        self.sexo = sexo  # 1 Masculino y 2 Femenino
 
 ######## ----------------------------------------------------------------------------------------------------------------------
         self.numeroHijosEmpleado = numeroHijosEmpleado
@@ -40,6 +39,11 @@ class Empleado:
             return empleado.nombres, 'tiene un salario más alto que ', self.nombres
         else:
             return "Ambos empleados tienen el mismo salario."
+        
+    #_____________________Diferencia Salarial__________________#
+    def diferenciaSalarial(self, empleado):
+        return self.salario - empleado.salario
+    
 ######## ----------------------------------------------------------------------------------------------------------------------
 
     '''----------------------------------------------------------------

@@ -12,4 +12,7 @@ print(empleado1.auxilioEducativoEspeficicado(0.15))
 #________________________Prueba de Metodo - Comparacion________________________#
 print(empleado2.compararSalarios(empleado1))
 
+#_______________________Diferencia Salarioa___________________________________#
+print(empleado2.diferenciaSalarial(empleado1))
+
 

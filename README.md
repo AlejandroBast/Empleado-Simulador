@@ -46,8 +46,11 @@ Ahora nos pide que **implementemos** un nuevo metodo:
             return empleado.nombres, 'tiene un salario más alto que ', self.nombres
         else:
             return "Ambos empleados tienen el mismo salario."
+
+    def diferenciaSalarial(self, empleado):
+        return self.salario - empleado.salario
 ```
-Aqui intente de **muchas manera** pero la unica forma que se me ocurrio fue usar las **condicionales `IF, ELIF y ELSE`** para poner las condiciones de que **si al comparar** alguno tiene un salario mas alto que el otro **nos lo haga saber** denotando sus nombres, si no, nos indique que tienen el mismo salario.
+Aqui intente de **muchas manera** pero la unica forma que se me ocurrio fue usar las **condicionales `IF, ELIF y ELSE`** para poner las condiciones de que **si al comparar** alguno tiene un salario mas alto que el otro **nos lo haga saber** denotando sus nombres, si no, nos indique que tienen el mismo salario. Tambien como no estaba muy seguro implemente otro metodo que calcula la diferencia de salarios, osea el resultado de restar el salario de uno con el otro
 
 ---
 
